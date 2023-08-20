@@ -1,0 +1,65 @@
+/* vd -> Very Drak */
+$vdblue: hsl(235, 21%, 11%);
+$vdDesaturatedblue: hsl(235, 24%, 19%);
+$lightgrayblue: hsl(234, 39%, 85%);
+$lightgrayblueh: hsl(236, 33%, 92%);
+$darkgrayblue: hsl(234, 11%, 52%);
+$vdGrayishblueh: hsl(233, 14%, 35%);
+$vdGrayishblue: hsl(237, 14%, 26%);
+
+.dark-mode {
+  background: url("https://ronniiii-i.github.io/projects/todo-app-main/images/bg-desktop-dark.jpg")
+    no-repeat $vdblue;
+  // background-size: contain;
+  header {
+    button:nth-child(2) {
+      display: none;
+    }
+  }
+  main {
+    .input-container {
+      background-color: $vdDesaturatedblue;
+    }
+    .input-container .check label,
+    li .check label {
+      border: 1px solid $vdGrayishblue;
+    }
+    button,
+    em,
+    li.completed p,
+    p,
+    span,
+    input,
+    li span {
+      color: $darkgrayblue;
+    }
+    li,
+    li p,
+    .action button:hover {
+      color: $lightgrayblue;
+    }
+    small{
+      color: darken($lightgrayblue, 10)
+    }
+    li,
+    em {
+      border-bottom: 1px solid $darkgrayblue;
+    }
+    section,
+    #views {
+      background-color: $vdDesaturatedblue;
+    }
+    li {
+      p::after,
+      small::after {
+        background-color: $darkgrayblue;
+      }
+      &.completed {
+        p,
+        small {
+          color: $darkgrayblue;
+        }
+      }
+    }
+  }
+}

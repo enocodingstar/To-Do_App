@@ -1,0 +1,64 @@
+$lightgray: hsl(0, 0%, 98%);
+$vlightgrayblue: hsl(236, 33%, 92%);
+$lightgrayblue: hsl(233, 11%, 84%);
+$darkgrayblue: hsl(237, 31%, 13%);
+$vdarkgrayblue: hsl(235, 19%, 35%);
+
+.light-mode {
+  background: url("https://ronniiii-i.github.io/projects/todo-app-main/images/bg-desktop-light.jpg")
+    no-repeat $lightgray;
+  // background-size: contain;
+  header {
+    button:last-child {
+      display: none;
+    }
+  }
+  main {
+    .input-container {
+      background-color: white;
+    }
+    .input-container .check label,
+    li .check label {
+      border: 1px solid $lightgrayblue;
+    }
+  }
+  li,
+  li p,
+  main .action button:hover,
+  em,
+  p,
+  input {
+    color: $vdarkgrayblue;
+  }
+  small {
+    color: lighten($color: $vdarkgrayblue, $amount: 20);
+  }
+  li,
+  em {
+    border-bottom: 1px solid $vlightgrayblue;
+  }
+  .action {
+    p,
+    button {
+      color: $lightgrayblue;
+    }
+  }
+  li {
+    p::after,
+    small::after {
+      background-color: $lightgrayblue;
+    }
+    &.completed {
+      p,
+      small {
+        color: $lightgrayblue;
+      }
+    }
+  }
+
+  main section,
+  main #views {
+    background-color: white;
+    box-shadow: 0px 1px 11px -7px #000;
+  }
+}
