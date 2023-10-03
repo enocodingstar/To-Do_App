@@ -4,13 +4,11 @@ import Input from './components/input';
 import Section from './components/section';
 import './styles/App.scss';
 
-
-
-
 function App() {
   const [appTheme, setAppTheme] = useState('light-mode');
   const [tasks, setTasks] = useState([]);
   const [taskName, setTaskName] = useState('');
+  const [currentView, setCurrentView] = useState('all'); // Initialize currentView state
 
   const toggleAppTheme = (theme) => {
     setAppTheme(theme);
@@ -23,11 +21,22 @@ function App() {
   }
 
   return (
-       <div className={`app ${appTheme}`}>
-      <Header  appTheme={appTheme} toggleAppTheme={toggleAppTheme}/>
+    <div className={`app ${appTheme}`}>
+      <Header appTheme={appTheme} toggleAppTheme={toggleAppTheme} />
       <main>
-        <Input tasks={tasks} setTasks={setTasks} taskName={taskName} setTaskName={setTaskName}/>
-        <Section tasks={tasks} taskName={taskName} handleDeleteClick={handleDeleteClick}/>
+        <Input tasks={tasks} setTasks={setTasks} taskName={taskName} setTaskName={setTaskName} />
+        <Section tasks={tasks} setTasks={setTasks} taskName={taskName} handleDeleteClick={handleDeleteClick} currentView={currentView} />
+        <div id="views" className="flex align-center justify-center">
+          <button className={currentView === 'all' ? 'active' : ''} onClick={() => setCurrentView('all')}>
+            All
+          </button>
+          <button className={currentView === 'active' ? 'active' : ''} onClick={() => setCurrentView('active')}>
+            Active
+          </button>
+          <button className={currentView === 'completed' ? 'active' : ''} onClick={() => setCurrentView('completed')}>
+            Completed
+          </button>
+        </div>
       </main>
     </div>
   );
