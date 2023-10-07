@@ -44,6 +44,15 @@ function Section({ tasks, setTasks, handleDeleteClick }) {
     setFilteredTasks(updatedTasks);
   };
   
+// function for clearing completed tasks
+
+const clearCompletedTasks = () => {
+  // Create a new array that excludes completed tasks
+  const updatedTasks = tasks.filter((task) => !task.completed);
+  setTasks(updatedTasks);
+  const updatedFilteredTasks = filteredTasks.filter((task) => !task.completed);
+  setFilteredTasks(updatedFilteredTasks);
+};
 
 
 
@@ -83,7 +92,7 @@ function Section({ tasks, setTasks, handleDeleteClick }) {
           <p>{`${taskCounter} items left`}</p>
         </div>
         <Views currentView={currentView} setCurrentView={setCurrentView} />
-        <button>Clear Completed</button>
+        <button onClick={clearCompletedTasks}>Clear Completed</button>
       </div>
     </section>
   );
